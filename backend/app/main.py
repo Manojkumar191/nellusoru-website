@@ -15,7 +15,12 @@ from app.api import auth, categories, products, customers, invoices, offers, enq
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
-    Base.metadata.create_all(bind=engine)
+    try:
+        Base.metadata.create_all(bind=engine)
+        print("✅ Database tables created successfully")
+    except Exception as e:
+        print(f"⚠️  Database table creation failed: {e}")
+        print("Application will continue, but database operations may fail")
     yield
     # Shutdown
     pass
