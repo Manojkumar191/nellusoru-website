@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     BUSINESS_ADDRESS: str = "Near Karur Road, Kadavur, Karur, Tamil Nadu - 621313"
     
     # CORS
-    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000"
+    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,https://nellusoru-website.vercel.app/"
     
     class Config:
         env_file = ".env"
